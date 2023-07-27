@@ -2,71 +2,203 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fruit Burst</title>
-  <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon"> <!--favicon-->
-  <!-- tailwind and daisyUI cdn -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fruit Brust</title>
+  <!-- Tailwind nad Daisy UI -->
   <link href="https://cdn.jsdelivr.net/npm/daisyui@3.4.0/dist/full.css" rel="stylesheet" type="text/css" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- google fonts lato -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
-    rel="stylesheet">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <style>
-    .font-lato {
-      font-family: 'Lato', sans-serif;
-    }
-  </style>
-
+  <!-- Google Font Style -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet" />
+  <!-- Custom Colour -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            f: "#da373d",
+            pk1: "#F85559",
+            pk2: "#FBC0A8",
+          },
+        },
+      },
+    };
+  </script>
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/c7f83cd83c.js" crossorigin="anonymous"></script>
 </head>
 
-<body class="font-lato">
+<body class="bg-base-50">
 
-  <header class="md:mx-24">
+  <!-- Navigation Bar -->
 
-    <!-- Nav section -->
+  <nav class="flex justify-between items-center lg:rounded-full lg:bg-pk1 p-5 mx-3 lg:mx-16 lg:mt-10">
+    <div class="hidden lg:block">
+      <ul class="flex justify-around gap-5">
+        <li class="text-base font-normal text-white">Home</li>
+        <li class="text-bas font-normal text-white">About Us</li>
+        <li class="text-base font-normal text-white">Shop</li>
+        <li class="text-base font-normal text-white">All Fruits</li>
+      </ul>
+    </div>
 
-    <nav class="flex px-5 gap-8 justify-between items-center md:bg-[#F85559] h-24 md:px-12 mt-1 md:mt-10 rounded-full">
-      <div class="hidden md:block">
-        <ul class="flex gap-8 text-secondary font-medium text-white">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Shop</a></li>
-          <li><a href="#">All Fruits</a></li>
+    <div class="flex justify-center items-center">
+      <img class="w-auto" src="./images/logo.png" alt="" />
+      <button class="pl-2 text-xl font-bold xl:text-3xl lg:text-white bg-[pk1] hover:bg-rose-400 ">
+        Fruit Burst
+      </button>
+    </div>
+
+    <div class="hidden lg:block relative">
+      <input type="text" placeholder="Search Here" class="input input-bordered rounded-full w-80" />
+      <i class="fas fa-search absolute top-4 right-5"></i>
+    </div>
+
+    <div class="lg:hidden">
+      <div class="dropdown">
+        <label tabindex="0" class="btn btn-ghost btn-circle">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
+          </svg>
+        </label>
+        <ul tabindex="0"
+          class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-36 right-0">
+          <li><a>Home</a></li>
+          <li><a>About Us</a></li>
+          <li><a>Shop</a></li>
+          <li><a>All Fruits</a></li>
+          <li>
+            <input type="text" placeholder="Search Here"
+              class="input input-bordered rounded-full w-28 h-10 text-left" />
+            <i class="fas fa-search absolute left-20 top-2 text-sm"></i>
+          </li>
         </ul>
       </div>
-      <div class="flex lg:flex items-center gap-2">
-        <img class="w-7 md:w-14 h-7 md:h-14" src="./images/logo.png" alt="logo">
-        <h3 class="text-titleColor md:text-secondary text-2xl md:text-4xl font-bold ">Fruit Burst</h3>
+    </div>
+  </nav>
+
+
+
+  <!-- Banner Section -->
+
+  <div class="carousel relative mx-2 lg:mx-16 mt-5 lg:mt-14">
+    <div id="slide1" class="carousel-item relative w-full">
+      <img src="./images/banner1.png" class="w-full brightness-50" />
+      <div class="absolute flex justify-between items-center transform -translate-y-1/2 left-5 right-5 top-1/2">
+        <a href="#slide4" class="btn btn-circle bg-transparent text-white border-none">❮</a>
+
+        <div
+          class="absolute flex flex-col justify-center items-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 gap-3 md:gap-5 lg:gap-8">
+          <h1 class="text-xl lg:text-5xl font-bold text-white text-center">
+            Exotic tastes at your doorstep
+          </h1>
+          <p class="text-xs lg:text-base font-normal text-white text-center">
+            We supply highly quality organic products
+          </p>
+          <div class="btn bg-pk1 border-none text-white text-base lg:text-lg font-bold">
+            Shop Now
+          </div>
+        </div>
+
+        <a href="#slide2" class="btn btn-circle bg-transparent text-white border-none">❯</a>
       </div>
+    </div>
+    <div id="slide2" class="carousel-item relative w-full">
+      <img src="./images/banner2.png" class="w-full brightness-50" />
+      <div class="absolute flex justify-between items-center transform -translate-y-1/2 left-5 right-5 top-1/2">
+        <a href="#slide1" class="btn btn-circle bg-transparent text-white border-none">❮</a>
 
-      <div class="hidden lg:relative lg:block">
-        <input class="h-14 text-xl rounded-full outline-none px-5" type="text" placeholder="Search here">
-        <i class="fa-solid fa-magnifying-glass lg:absolute top-4 right-5 text-xl text-titleColor cursor-pointer"></i>
+        <div
+          class="absolute flex flex-col justify-center items-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 gap-3 md:gap-5 lg:gap-8">
+          <h1 class="text-xl lg:text-5xl font-bold text-white text-center">
+            Exotic tastes at your doorstep
+          </h1>
+          <p class="text-xs lg:text-base font-normal text-white text-center">
+            We supply highly quality organic products
+          </p>
+          <div class="btn btn bg-pk1 border-none text-white text-base lg:text-lg font-bold">
+            Shop Now
+          </div>
+        </div>
+
+        <a href="#slide3" class="btn btn-circle bg-transparent text-white border-none">❯</a>
       </div>
+    </div>
+    <div id="slide3" class="carousel-item relative w-full">
+      <img src="./images/banner3.png" class="w-full brightness-50" />
+      <div class="absolute flex justify-between items-center transform -translate-y-1/2 left-5 right-5 top-1/2">
+        <a href="#slide2" class="btn btn-circle bg-transparent text-white border-none">❮</a>
 
-      <div class="md:hidden cursor-pointer">
-        <a href="#"> <i class="fa-solid fa-bars text-2xl text-titleColor"></i></a>
+        <div
+          class="absolute flex flex-col justify-center items-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 gap-3 md:gap-5 lg:gap-8">
+          <h1 class="text-xl lg:text-5xl font-bold text-white text-center">
+            Exotic tastes at your doorstep
+          </h1>
+          <p class="text-xs lg:text-base font-normal text-white text-center">
+            We supply highly quality organic products
+          </p>
+          <div class="btn btn bg-pk1 border-none text-white text-base lg:text-lg font-bold">
+            Shop Now
+          </div>
+        </div>
+
+        <a href="#slide4" class="btn btn-circle bg-transparent text-white border-none">❯</a>
       </div>
-    </nav>
-    
-  </header>
-<main class="md:mx-24">
+    </div>
+    <div id="slide4" class="carousel-item relative w-full">
+      <img src="./images/banner4.png" class="w-full brightness-50" />
+      <div class="absolute flex justify-between items-center transform -translate-y-1/2 left-5 right-5 top-1/2">
+        <a href="#slide3" class="btn btn-circle bg-transparent text-white border-none">❮</a>
 
+        <div
+          class="absolute flex flex-col justify-center items-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 gap-3 md:gap-5 lg:gap-8">
+          <h1 class="text-xl lg:text-5xl font-bold text-white text-center">
+            Exotic tastes at your doorstep
+          </h1>
+          <p class="text-xs lg:text-base font-normal text-white text-center">
+            We supply highly quality organic products
+          </p>
+          <div class="btn btn bg-pk1 border-none text-white text-base lg:text-lg font-bold">
+            Shop Now
+          </div>
+        </div>
 
-
+        <a href="#slide1" class="btn btn-circle bg-transparent text-white border-none">❯</a>
+      </div>
+    </div>
+  </div>
 
   
-</main>
+  <!-- bonus section -->
 
+  <div class="hidden lg:block relative mx-60 my-24 text-center text-black bg-white z-30">
+    <div class="absolute flex flex-row justify-center bg-white shadow-md items-center -bottom-1 rounded-xl px-10 py-5">
+      <div>
+        <img src="./images/fruit1.png" alt="fruits" />
+        <p class="mt-4">Strawberry</p>
+      </div>
+
+      <div>
+        <img src="./images/fruit2.png" alt="fruits" />
+        <p class="mt-4">Orange</p>
+      </div>
+      <div>
+        <img src="./images/fruit3.png" alt="fruits" />
+        <p class="mt-4">Mango</p>
+      </div>
+      <div>
+        <img src="./images/fruit4.png" alt="fruits" />
+        <p class="mt-4">Strawberry</p>
+      </div>
+      <div>
+        <img src="./images/fruit5.png" alt="fruits" />
+        <p class="mt-4">Mango</p>
+      </div>
+    </div>
+  </div>
+  
 </body>
 
 </html>
